@@ -1,0 +1,63 @@
+/*============typing animation ================= */
+var typed = new Typed(".typing", {
+  strings: ["Web Designer", "Web Developer", "Graphic Designer", "Witsie", "Knockandian", "Mobile App Developer","Pornstar"],
+  typeSpeed: 100,
+  backSpeed: 60,
+  loop: true,
+});
+/*===========Aside=============*/
+const nav = document.querySelector(".nav"),
+  navList = nav.querySelectorAll("li"),
+  totalNavList = navList.length;
+  allSection = document.querySelectorAll(".section"),
+  totalSection= allSection.length;
+  for(let i = 0; i<totalNavList;i++){
+    const a = navList[i].querySelector("a");
+    a.addEventListener("click", function()
+    {
+      for(let j=0;j<totalSection;j++){
+      
+        allSection[j].classList.remove("back-section")
+    }
+      for(let j=0; j<totalNavList;j++)
+      {
+        if(navList[j].querySelector("a").classList.contains("active")){
+          allSection[j].classList.add("back-section");
+        }
+        navList[j].querySelector("a").classList.remove("active")
+      }
+      this.classList.add("active") 
+      shoowSection(this);
+
+
+    })
+
+  }
+  function shoowSection(element)
+  {
+    
+   
+    for(let j=0;j<totalSection;j++){
+      
+        allSection[j].classList.remove("active")
+    }
+    const target = element.getAttribute("href").split("#")[1];
+
+    document.querySelector("#" + target).classList.add("active")
+  }
+
+  const navTogglerBtn = document.querySelector(".nav-toggler"),
+    aside = document.querySelector(".aside");
+    navTogglerBtn.addEventListener("click",() =>
+    {
+      asideSectionTogglerBtn()
+
+
+    }
+    )
+    function asideSectionTogglerBtn()
+    {
+      aside.classList.toggle("open")
+      navTogglerBtn.classList.toggle("open");
+      
+    }
