@@ -439,12 +439,28 @@ h3.my-profession
 {
   height: 400px;
   margin: auto;
+  flex: center;
   border-radius: 5px;
-  background: red;
+  background-blend-mode: normal;
 
 }
 
 /* about */
+
+.education,
+.experience {
+  width: 50%;
+  float: left;
+   vertical-align: top; /* Align to top if using inline-block */
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .education,
+  .experience {
+    width: 100%;
+  }
+}
 .about .about-content
 {
  flex: 0 0 100%;
